@@ -1,4 +1,4 @@
-package com.example.logToXml.reader;
+package com.example.logToXml.app;
 
 import com.example.logToXml.data.LogFileDAO;
 import com.example.logToXml.model.Report;
@@ -29,9 +29,9 @@ public class LogFileReporter {
             e.printStackTrace();
         }
         Report report = new Report();
-        report.setRenderings(logFileDAO.getRenderings());
+        report.setRendering(logFileDAO.getRenderings());
         Summary s = new Summary();
-        s.setCount(report.getRenderings().size());
+        s.setCount(report.getRendering().size());
         s.setDuplicates(logFileDAO.getAmountOfDoubleRenderings());
         s.setUnnecessary(logFileDAO.getAmountOfStartRenderingsWithoutGet());
         report.setSummary(s);

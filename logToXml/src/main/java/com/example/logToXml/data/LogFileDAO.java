@@ -51,7 +51,7 @@ public class LogFileDAO {
     }
 
     public int getAmountOfStartRenderingsWithoutGet(){
-        return (int) docToRendering.values().stream().filter(rendering -> rendering.getGetRenderings().isEmpty()).count();
+        return (int) docToRendering.values().stream().filter(rendering -> rendering.getGets().isEmpty()).count();
     }
 
     public LogFileDAO(){
