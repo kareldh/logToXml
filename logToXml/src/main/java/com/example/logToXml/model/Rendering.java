@@ -6,6 +6,8 @@ import lombok.Setter;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -25,11 +27,28 @@ public class Rendering {
      * One or more timestamps of startRendering
      */
     @XmlElement(name="start")
-    Date[] startRenderings;
+    Set<Date> startRenderings;
 
     /**
      * One or more timestamps of getRendering
      */
     @XmlElement(name="get")
-    Date[] getRenderings;
+    Set<Date> getRenderings;
+
+    public Rendering() {
+        this.startRenderings = new HashSet<>();
+        this.getRenderings = new HashSet<>();
+    }
+
+    public void addStartRendering(Date date){
+        if(!startRenderings.contains(date)){
+            startRenderings.add(date);
+        }
+    }
+
+    public void addGetRendering(Date date){
+        if(!getRenderings.contains(date)){
+            getRenderings.add(date);
+        }
+    }
 }
